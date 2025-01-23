@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
+import CompletedList from './components/CompletedList';
 import axios from 'axios';
 
 type Todo = {
@@ -19,7 +20,7 @@ const App: React.FC = () => {
     }, []);
 
     const addTodo = (text: string) => {
-        axios.post('http://localhost:5000/todos', { text }).then((response) => {
+        axios.post('http://localhost:5000/todos', { text, completed: false }).then((response) => {
             setTodos([...todos, response.data]);
         });
     };
@@ -30,17 +31,32 @@ const App: React.FC = () => {
         });
     };
 
-    const toggleTodo = (id: number) => {
-        axios.put(`http://localhost:5000/todos/${id}`).then((response) => {
-            setTodos(todos.map((todo) => (todo.id === id ? response.data : todo)));
+    const toggleTodo = (id: number, completed: boolean) => {
+        axios.put(`http://localhost:5000/todos/${id}`, { completed }).then((response) => {
+            setTodos(
+                todos.map((todo) => (todo.id === id ? { ...todo, completed: response.data.completed } : todo))
+            );
         });
     };
 
+    const activeTodos = todos.filter((todo) => !todo.completed);
+    const completedTodos = todos.filter((todo) => todo.completed);
+
     return (
-        <div style={{ padding: '16px' }}>
-            <h1>Lista Todo</h1>
-            <AddTodo onAdd={addTodo} />
-            <TodoList todos={todos} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <div>
+            <div className="container">
+                <h1>Lista Todo</h1>
+                <AddTodo onAdd={addTodo} />
+                <TodoList
+                    todos={activeTodos}
+                    onToggle={(id) => toggleTodo(id, true)}
+                    onDelete={deleteTodo}
+                />
+                <CompletedList
+                    completedTodos={completedTodos}
+                    onUndo={(id) => toggleTodo(id, false)}
+                />
+            </div>
         </div>
     );
 };

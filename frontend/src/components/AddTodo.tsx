@@ -16,15 +16,43 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form
+            onSubmit={handleSubmit}
+            style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '20px',
+            }}
+        >
             <input
                 type="text"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Dodaj nowe zadanie"
-                style={{ marginRight: '8px' }}
+                style={{
+                    padding: '10px',
+                    fontSize: '16px',
+                    border: '1px solid #ccc',
+                    borderRadius: '4px',
+                    marginRight: '10px',
+                    width: '300px',
+                }}
             />
-            <button type="submit">Dodaj</button>
+            <button
+                type="submit"
+                style={{
+                    padding: '10px 20px',
+                    fontSize: '16px',
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                }}
+            >
+                Dodaj
+            </button>
         </form>
     );
 };
