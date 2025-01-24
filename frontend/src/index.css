@@ -1,61 +1,69 @@
+/* styl dla tabeli */
 table {
-  margin: 0 auto;
-  border-collapse: collapse;
-  width: 80%;
-  max-width: 600px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* centrowanie tabeli */
+  border-collapse: collapse; /* usunięcie odstępów między komórkami */
+  width: 80%; /* szerokość tabeli ustawiona na 80% */
+  max-width: 600px; /* maksymalna szerokość tabeli */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* delikatny cień wokół tabeli */
 }
 
+/* styl dla nagłówków tabeli */
 th {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px;
-  text-align: left;
+  background-color: #4CAF50; /* zielone tło nagłówków */
+  color: white; /* biały kolor tekstu w nagłówkach */
+  padding: 12px; /* wewnętrzne odstępy w komórkach nagłówków */
+  text-align: left; /* wyrównanie tekstu do lewej */
 }
 
+/* styl dla komórek tabeli */
 td {
-  padding: 12px;
-  border: 1px solid #ddd;
-  text-align: left;
+  padding: 12px; /* wewnętrzne odstępy w komórkach */
+  border: 1px solid #ddd; /* cienka ramka w kolorze jasnoszarym */
+  text-align: left; /* wyrównanie tekstu do lewej */
 }
 
+/* styl dla przycisków */
 button {
-  padding: 8px 12px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  padding: 8px 12px; /* wewnętrzne odstępy w przyciskach */
+  background-color: #4CAF50; /* zielone tło przycisków */
+  color: white; /* biały kolor tekstu */
+  border: none; /* usunięcie ramki */
+  border-radius: 4px; /* zaokrąglenie rogów */
+  cursor: pointer; /* zmiana kursora na wskazujący */
 }
 
+/* efekt hover dla przycisków */
 button:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* ciemniejszy zielony kolor najechania */
 }
 
+/* styl dla przycisków usuwania */
 .delete-button {
-  background-color: #f44336;
+  background-color: #f44336; /* czerwone tło dla przycisków usuwania */
 }
 
+/* efekt hover dla przycisku usuwania */
 .delete-button:hover {
-  background-color: #d32f2f;
+  background-color: #d32f2f; /* ciemniejszy czerwony kolor najechania */
 }
 
-/*ciemne gradientowe tło*/
+/* ciemne gradientowe tło dla strony */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: radial-gradient(circle, #1b2735, #090a0f);
-  overflow: hidden; /*ukrywcie elementu wychodzącego poza ekran */
-  height: 100vh;
-  color: white; /*kolor tekstu */
+  margin: 0; /* usunięcie marginesów */
+  font-family: Arial, sans-serif; /* czcionka Arial lub domyślna bezszeryfowa */
+  background: radial-gradient(circle, #1b2735, #090a0f); /* gradientowe tło w formie koła */
+  overflow: hidden; /* ukrycie przewijania */
+  height: 100vh; /* wysokość na 100% widoku przeglądarki */
+  color: white; /* biały kolor tekstu */
 }
 
+/* wyrównanie nagłówków do środka */
 h1, h2 {
-  text-align: center;
+  text-align: center; /* tekst wyrównany do środka */
 }
 
+/* kontener dla głównej zawartości aplikacji */
 .container {
-  position: relative;
-  z-index: 1; /*tekst i treść aplikacji nad tłem*/
+  position: relative; /* pozycjonowanie względne */
+  z-index: 1; /* tekst i treść aplikacji nad tłem */
 }
-

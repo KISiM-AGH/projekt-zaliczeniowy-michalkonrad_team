@@ -1,23 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; //importujemy React i hook useState
 
+// definiujemy typy dla propsów komponentu
 interface AddTodoProps {
-    onAdd: (text: string) => void;
+    onAdd: (text: string) => void; // funkcja przekazana w propsach do dodawania nowego elementu
 }
 
+// komponent AddTodo, który zawiera pole tekstowe i przycisk do dodawania nowych elementów
 const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
-    const [text, setText] = useState('');
+    const [text, setText] = useState(''); // stan przechowujący wartość wpisaną w polu tekstowym
 
+    // funkcja obsługująca wysyłanie formularza
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (text.trim()) {
-            onAdd(text);
-            setText('');
+        e.preventDefault(); // zatrzymujemy domyślne działanie formularza
+        if (text.trim()) { // sprawdzamy, czy użytkownik wpisał jakiś tekst
+            onAdd(text); // wywołujemy funkcję przekazaną w propsach z tekstem z inputa
+            setText(''); // czyścimy pole tekstowe po dodaniu
         }
     };
 
     return (
+        // formularz do dodawania nowych elementów
         <form
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit} // przypisujemy funkcję obsługującą wysłanie formularza
             style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -27,9 +31,9 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
         >
             <input
                 type="text"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                placeholder="Dodaj nowe zadanie"
+                value={text} // powiązanie wartości inputa z wartością stanu
+                onChange={(e) => setText(e.target.value)} // aktualizacja stanu przy zmianie wartości w input
+                placeholder="Dodaj nowe zadanie" // tekst podpowiedzi w polu tekstowym
                 style={{
                     padding: '10px',
                     fontSize: '16px',
@@ -40,7 +44,7 @@ const AddTodo: React.FC<AddTodoProps> = ({ onAdd }) => {
                 }}
             />
             <button
-                type="submit"
+                type="submit" // typ przycisku ustawiony jako submit, co powoduje wysłanie formularza
                 style={{
                     padding: '10px 20px',
                     fontSize: '16px',

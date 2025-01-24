@@ -1,48 +1,50 @@
-/*gradientowe tło */
+/* gradientowe tło dla strony */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: radial-gradient(circle, #1b2735, #090a0f);
-  overflow: hidden;
-  height: 100vh;
-  color: white;
+  overflow: hidden; /* ukrywamy elementy wychodzące poza ekran */
+  height: 100vh; /* ustawiamy wysokość na 100% widoku przeglądarki */
+  color: white; /* kolor tekstu */
 }
 
+/* styl nagłówków */
 h1, h2 {
   text-align: center;
 }
 
+/* kontener na treść aplikacji */
 .container {
   position: relative;
-  z-index: 1; /*tekst i treść aplikacji */
+  z-index: 1; /* tekst i treść aplikacji nad tłem */
 }
 
-/*styl dla tabeli */
+/* styl dla tabeli */
 table {
-  border-collapse: collapse;
-  width: 80%;
-  margin: 20px auto;
-  background-color: #1b2735; /*ciemne tło tabeli */
-  color: white;
-  font-size: 16px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse; /* usunięcie odstępów między komórkami */
+  width: 80%; /* szerokość tabeli */
+  margin: 20px auto; /* centrowanie tabeli */
+  background-color: #1b2735; /* ciemne tło tabeli */
+  color: white; /* biały kolor tekstu */
+  font-size: 16px; /* rozmiar czcionki */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* delikatny cień */
 }
 
+/* styl dla nagłówków tabeli */
 th {
-  padding: 12px;
-  border: 1px solid #333;
-  background-color: #4CAF50; /*zielone nagłówki*/
-  color: rebeccapurple;
-  text-align: left;
+  padding: 12px; /* odstęp wewnętrzny */
+  border: 1px solid #333; /* cienka ramka */
+  background-color: #4CAF50; /* zielone tło */
+  color: rebeccapurple; /* fioletowy kolor tekstu */
+  text-align: left; /* wyrównanie tekstu do lewej */
 }
 
+/* styl dla komórek tabeli */
 td {
-  background-color: #1b2735 !important;
+  background-color: #1b2735 !important; /* tło komórek tabeli */
 }
 
-
-/*podświetlenie wiersza po najechaniu */
+/* podświetlenie wiersza po najechaniu myszą */
 tr:hover {
-  background-color: #333;/*kolor podśweitlenia */
+  background-color: #333; /* kolor podświetlenia wiersza */
 }
-

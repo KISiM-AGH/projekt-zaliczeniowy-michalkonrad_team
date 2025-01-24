@@ -1,15 +1,15 @@
-import express, { Request, Response } from 'express';
-import cors from 'cors';
-import fs from 'fs';
-import path from 'path';
+import express, { Request, Response } from 'express'; // import Express i typów
+import cors from 'cors'; // import obsługi CORS
+import fs from 'fs'; // import do pracy z plikami
+import path from 'path'; // import do obsługi ścieżek plików
 
-const app = express();
-const PORT = 5000;
+const app = express(); // inicjalizacja aplikacji Express
+const PORT = 5000; // port, na którym działa serwer
 
-// Ścieżka do pliku todos.json
+// ścieżka do pliku `todos.json`
 const TODOS_FILE_PATH = path.join(__dirname, 'data', 'todos.json');
 
-// Upewnij się, że plik i folder istnieją
+// funkcja tworząca plik `todos.json` i katalog, jeśli nie istnieją
 const ensureFileExists = () => {
     const dir = path.dirname(TODOS_FILE_PATH);
     if (!fs.existsSync(dir)) {
@@ -20,29 +20,30 @@ const ensureFileExists = () => {
     }
 };
 
-// Wczytaj dane z pliku JSON
+// funkcja do odczytu danych z pliku JSON
 const readTodosFromFile = () => {
     ensureFileExists();
     const data = fs.readFileSync(TODOS_FILE_PATH, 'utf-8');
     return JSON.parse(data);
 };
 
-// Zapisz dane do pliku JSON
+// funkcja do zapisu danych do pliku JSON
 const writeTodosToFile = (todos: any[]) => {
     ensureFileExists();
     fs.writeFileSync(TODOS_FILE_PATH, JSON.stringify(todos, null, 2));
 };
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// middleware
+app.use(cors()); // Obsługa CORS
+app.use(express.json()); // Parsowanie ciała żądań JSON
 
-// Endpointy
+// endpoint: Pobierz wszystkie TODO
 app.get('/todos', (req: Request, res: Response) => {
     const todos = readTodosFromFile();
     res.json(todos);
 });
 
+// endpoint: Dodaj nowe TODO
 app.post('/todos', (req: Request, res: Response) => {
     const todos = readTodosFromFile();
     const newTodo = req.body;
@@ -51,6 +52,7 @@ app.post('/todos', (req: Request, res: Response) => {
     res.status(201).json(newTodo);
 });
 
+// endpoint: Usuń TODO po ID
 app.delete('/todos/:id', (req: Request, res: Response) => {
     const todos = readTodosFromFile();
     const idToDelete = parseInt(req.params.id, 10);
@@ -59,7 +61,7 @@ app.delete('/todos/:id', (req: Request, res: Response) => {
     res.status(204).send();
 });
 
-// Uruchomienie serwera
+// uruchomienie serwera
 app.listen(PORT, () => {
     console.log(`Serwer działa na http://localhost:${PORT}`);
 });
