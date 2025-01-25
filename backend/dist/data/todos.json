@@ -17,7 +17,7 @@
   {
     "id": 1737754009065,
     "text": "Zadanie 4",
-    "completed": true
+    "completed": false
   },
   {
     "id": 1737754010532,
@@ -27,6 +27,16 @@
   {
     "id": 1737754458113,
     "text": "Zadanie 6",
+    "completed": false
+  },
+  {
+    "id": 1737809129697,
+    "text": "123",
+    "completed": true
+  },
+  {
+    "id": 1737809133721,
+    "text": "13333",
     "completed": false
   }
 ]
