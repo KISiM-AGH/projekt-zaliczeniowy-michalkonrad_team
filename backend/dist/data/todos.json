@@ -2,12 +2,12 @@
   {
     "id": 1737754004404,
     "text": "Zadanie 1",
-    "completed": false
+    "completed": true
   },
   {
     "id": 1737754006021,
     "text": "Zadanie 2",
-    "completed": true
+    "completed": false
   },
   {
     "id": 1737754007412,
